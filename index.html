@@ -1,18 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cyberpunk Fireworks</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="canvas-wrapper">
-        <canvas id="fireworksCanvas" width="1280" height="720"></canvas>
-      </div>
-      <button id="fireworksBtn">Launch Fireworks</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runway Rush - Arcade Airplane Landing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main game container -->
+    <div id="game-container">
+        <!-- Title screen -->
+        <div id="title-screen">
+            <h1 class="pixel-title">RUNWAY RUSH</h1>
+            <p class="pixel-text">Guide planes to matching runways!</p>
+            <p class="pixel-text controls-hint">Use keys 1-4 or click runways</p>
+            <p class="pixel-text controls-hint">Press / to switch planes</p>
+            <p class="pixel-text blink">PRESS SPACE TO START</p>
+            <p class="pixel-text high-score">HIGH SCORE: <span id="high-score">0</span></p>
+        </div>
+
+        <!-- Game canvas -->
+        <canvas id="game-canvas" width="800" height="600"></canvas>
+
+        <!-- Game UI overlay -->
+        <div id="game-ui">
+            <div class="ui-top">
+                <div class="score-display">
+                    <span class="label">SCORE:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="level-display">
+                    <span class="label">LEVEL:</span>
+                    <span id="level">1</span>
+                </div>
+                <div class="combo-display">
+                    <span class="label">COMBO:</span>
+                    <span id="combo">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over screen -->
+        <div id="game-over-screen" class="hidden">
+            <h2 class="pixel-title">GAME OVER</h2>
+            <p class="pixel-text">FINAL SCORE: <span id="final-score">0</span></p>
+            <p class="pixel-text">BEST COMBO: <span id="best-combo">0</span></p>
+            <p class="pixel-text">PLANES LANDED: <span id="planes-landed">0</span></p>
+            <p class="pixel-text blink">PRESS R TO RESTART</p>
+        </div>
+
+        <!-- Runway click areas (invisible overlays for mouse control) -->
+        <div id="runway-controls" class="hidden">
+            <div class="runway-button" data-runway="0"></div>
+            <div class="runway-button" data-runway="1"></div>
+            <div class="runway-button" data-runway="2"></div>
+            <div class="runway-button" data-runway="3"></div>
+        </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+
+    <!-- Audio elements -->
+    <audio id="sound-landing" preload="auto"></audio>
+    <audio id="sound-crash" preload="auto"></audio>
+    <audio id="sound-levelup" preload="auto"></audio>
+    <audio id="sound-bgmusic" loop preload="auto"></audio>
+
+    <!-- Game script -->
+    <script src="game.js"></script>
+</body>
 </html>

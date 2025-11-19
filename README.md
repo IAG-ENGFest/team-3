@@ -1,5 +1,3 @@
-# team-3
-
 # Runway Rush
 
 An arcade-style browser game where you guide incoming aircraft to land on the correct color-coded runway. Built with vanilla JavaScript, HTML5 Canvas, and pixel art aesthetics.
